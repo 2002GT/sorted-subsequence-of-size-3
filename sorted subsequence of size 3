@@ -1,0 +1,31 @@
+class Solution{
+  public:
+    vector<int> find3Numbers(vector<int> arr, int n) {
+        // Your code here
+        
+        int mini=INT_MAX,maxi=INT_MIN;
+       int mina[n],maxa[n];
+       vector<int>ans;
+       for(int i =0;i<n;i++){
+           if(arr[i]<mini){
+               mini=arr[i];
+           }
+           mina[i]=mini;
+       }
+       for(int i=n-1;i>=0;i--){
+           if(arr[i]>maxi){
+               maxi=arr[i];
+           }
+           maxa[i]=maxi;
+       }
+       for(int i=0;i<n;i++){
+           if(arr[i]>mina[i] && arr[i]<maxa[i]){
+               ans.push_back(mina[i]);
+               ans.push_back(arr[i]);
+               ans.push_back(maxa[i]);
+               return ans;
+           }
+       }
+       return ans;
+   }
+};
